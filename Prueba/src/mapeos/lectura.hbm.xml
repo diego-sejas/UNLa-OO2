@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name = "datos.Lectura" table = "lectura">
+		<id column = "idLectura" name = "idLectura">
+			<generator class = "identity"/>
+		</id>
+		<many-to-one name="medidor" class="datos.MedidorBaja"
+			column="idMedidorBaja" not-null="true" />
+			
+			
+		<property column = "fecha" name = "fecha" type = "LocalDate"/>
+		<many-to-one name="inspector" class="datos.Inspector"
+			column="idInspector" not-null="true" />
+		<property column = "consumo" name = "consumo" type = "int"/>
+		
+		
+	</class>
+</hibernate-mapping>
